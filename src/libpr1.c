@@ -25,12 +25,7 @@
 
 
 /*-----------------------------------------------------------------*/
-#ifdef ANSI_FN_DEF
 void lib_output_comment (char *comment)
-#else
-void lib_output_comment (comment)
-char *comment;
-#endif
 {
     switch (gRT_out_format) {
 		
@@ -74,12 +69,7 @@ char *comment;
 
 
 /*-----------------------------------------------------------------*/
-#ifdef ANSI_FN_DEF
 void lib_output_vector (double x, double y, double z)
-#else
-void lib_output_vector(x, y, z)
-double  x, y, z;
-#endif
 {
     switch (gRT_out_format) {
 	case OUTPUT_VIDEO:
@@ -124,13 +114,7 @@ double  x, y, z;
 
 
 /*-----------------------------------------------------------------*/
-#ifdef ANSI_FN_DEF
 void axis_to_z (COORD3 axis, double *xang, double *yang)
-#else
-void axis_to_z(axis, xang, yang)
-COORD3 axis;
-double *xang, *yang;
-#endif
 {
 	double len;
 	
@@ -164,18 +148,9 @@ double *xang, *yang;
  *     pixel row and left column to right column.
  *   Yon is "at infinity."
  */
-#ifdef ANSI_FN_DEF
 void lib_output_viewpoint (COORD3 from, COORD3 at, COORD3 up,
 						   double fov_angle, double aspect_ratio,
 						   double hither, int resx, int resy)
-#else
-						   void lib_output_viewpoint(from, at, up,
-						   fov_angle, aspect_ratio, hither,
-						   resx, resy)
-						   COORD3 from, at, up;
-double fov_angle, aspect_ratio, hither;
-int    resx, resy;
-#endif
 {
     COORD3 axis, myright, tmp;
     COORD4 viewvec, rightvec;
@@ -898,13 +873,7 @@ int    resx, resy;
 }
 
 /*-----------------------------------------------------------------*/
-#ifdef ANSI_FN_DEF
 static char * create_surface_name(char *name, int val)
-#else
-static char * create_surface_name(name, val)
-char *name;
-int val;
-#endif
 {
     char *txname;
 	
@@ -940,16 +909,9 @@ int val;
  *    i_of_r    = index of refraction of the surface
  *
  */
-#ifdef ANSI_FN_DEF
 char * lib_output_color (char *name, COORD3 color, double ka,
 						 double kd, double ks, double ks_spec,
 						 double ang, double kt, double i_of_r)
-#else
-						 char * lib_output_color(name, color, ka, kd, ks, ks_spec, ang, kt, i_of_r)
-						 char *name;
-COORD3 color;
-double ka, kd, ks, ks_spec, ang, kt, i_of_r;
-#endif
 {
     surface_ptr new_surf;
     char *txname = NULL;
