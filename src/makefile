@@ -1,7 +1,7 @@
 # generic makefile for standard procedural databases
 # Author:  Eric Haines
 
-CC=cc -O
+CC=gcc -O
 SUFOBJ=.o
 SUFEXE=
 INC=def.h lib.h
