@@ -42,9 +42,7 @@ static	COORD4	objset[9] ;
  * Uses global 'objset'.
  */
 static void
-output_object(depth, center, direction)
-int depth;
-COORD4 center, direction;
+output_object(int depth, COORD4 center, COORD4 direction)
 {
     double  angle;
     COORD4  axis, z_axis;
