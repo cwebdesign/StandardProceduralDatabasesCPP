@@ -3,7 +3,7 @@
 
 CC=gcc -O
 SUFOBJ=.o
-SUFEXE=
+SUFEXE=.exe
 INC=def.h lib.h
 LIBOBJ=drv_null$(SUFOBJ) libini$(SUFOBJ) libinf$(SUFOBJ) libpr1$(SUFOBJ) \
 	libpr2$(SUFOBJ) libpr3$(SUFOBJ) libply$(SUFOBJ) libdmp$(SUFOBJ) \
