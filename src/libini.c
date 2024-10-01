@@ -424,7 +424,7 @@ int lib_read_get_opts (int argc, char *argv[], int *p_rdr, int *p_curve, char *p
 					return( TRUE ) ;
 				} else {
 					if ( ++num_arg < argc ) {
-						sscanf_s( argv[num_arg], "%s", p_infname, 256 ) ;
+						sscanf( argv[num_arg], "%s", 256 ) ;
 					} else {
 						fprintf( stderr, "not enough args for -f option\n" ) ;
 						show_read_usage();
@@ -434,7 +434,7 @@ int lib_read_get_opts (int argc, char *argv[], int *p_rdr, int *p_curve, char *p
 				break ;
 			case 'r':       /* renderer selection */
 				if ( ++num_arg < argc ) {
-					sscanf_s( argv[num_arg], "%d", &val ) ;
+					sscanf( argv[num_arg], "%d", &val ) ;
 					if ( val < OUTPUT_VIDEO || val >= OUTPUT_DELAYED ) {
 						fprintf( stderr,
 							"bad renderer value %d given\n",val);
