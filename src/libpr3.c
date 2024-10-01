@@ -23,6 +23,7 @@
 /* defines/constants section */
 /*-----------------------------------------------------------------*/
 
+#define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES //make VS happy
 
 static unsigned int hfcount = 0;
 
