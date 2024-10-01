@@ -396,15 +396,7 @@ int     lib_gen_get_opts (int argc, char *argv[], int *p_size, int *p_rdr, int *
  * some of these are useless for the various routines - we're being a bit
  * lazy here...
  */
-#ifdef ANSI_FN_DEF
-int     lib_read_get_opts (int argc, char *argv[], int *p_rdr, int *p_curve, char *p_infname)
-#else
-int     lib_read_get_opts( argc, argv, p_rdr, p_curve, p_infname )
-int     argc ;
-char    *argv[] ;
-int     *p_rdr, *p_curve ;
-char *p_infname;
-#endif
+int lib_read_get_opts (int argc, char *argv[], int *p_rdr, int *p_curve, char *p_infname)
 {
 	int num_arg ;
 	int val ;
@@ -479,8 +471,7 @@ char *p_infname;
 
 
 /*-----------------------------------------------------------------*/
-void
-lib_clear_database PARAMS((void))
+void lib_clear_database PARAMS((void))
 {
     surface_ptr ts1, ts2;
     object_ptr to1, to2;
@@ -546,8 +537,7 @@ lib_clear_database PARAMS((void))
 }
 
 /*-----------------------------------------------------------------*/
-void
-lib_flush_definitions PARAMS((void))
+void lib_flush_definitions PARAMS((void))
 {
     switch (gRT_out_format) {
 	case OUTPUT_RTRACE:
