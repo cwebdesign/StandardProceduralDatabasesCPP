@@ -139,9 +139,7 @@ create_objset()
 }
 
 int
-main(argc,argv)
-int argc ;
-char *argv[] ;
+main(int argc,char *argv[])
 {
     COORD3 back_color, obj_color;
     COORD3 backg[5], bvec;
