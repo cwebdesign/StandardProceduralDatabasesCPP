@@ -23,6 +23,7 @@
 /* defines/constants section */
 /*-----------------------------------------------------------------*/
 
+#define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES //make VS happy
 /* output file name */
 char gOutfileName[MAX_OUTFILE_NAME_SIZE];
 
@@ -56,13 +57,8 @@ static char	*gFnameSuffix[OUTPUT_DELAYED+1] =
 /*-----------------------------------------------------------------*/
 /* Library initialization/teardown functions */
 /*-----------------------------------------------------------------*/
-#ifdef ANSI_FN_DEF
-int lib_open(int raytracer_format, char *filename)
-#else
-int lib_open( raytracer_format, filename )
-int     raytracer_format ;
-char    *filename ;     /* unused except for Mac version */
-#endif
+
+int lib_open(int raytracer_format, char *filename) //filename unused except on Macos
 {
 	gOutfileName[0]=0;
 #ifdef OUTPUT_TO_FILE
@@ -307,14 +303,7 @@ void show_read_usage PARAMS((void))
  * some of these are useless for the various routines - we're being a bit
  * lazy here...
  */
-#ifdef ANSI_FN_DEF
 int     lib_gen_get_opts (int argc, char *argv[], int *p_size, int *p_rdr, int *p_curve)
-#else
-int     lib_gen_get_opts( argc, argv, p_size, p_rdr, p_curve )
-int     argc ;
-char    *argv[] ;
-int     *p_size, *p_rdr, *p_curve ;
-#endif
 {
 	int num_arg ;
 	int val ;
@@ -332,7 +321,7 @@ int     *p_size, *p_rdr, *p_curve ;
 				if ( num_arg < argc-1 ) {
 					if ( argv[num_arg+1][0] != '-' ) {
 						num_arg++ ;
-						sscanf_s( argv[num_arg], "%d", &val ) ;
+						sscanf( argv[num_arg], "%d", &val ) ;
 						if ( val < 1 ) {
 							fprintf( stderr,
 								"bad resolution value %s given\n",
@@ -347,7 +336,7 @@ int     *p_size, *p_rdr, *p_curve ;
 				break ;
 			case 'r':       /* renderer selection */
 				if ( ++num_arg < argc ) {
-					sscanf_s( argv[num_arg], "%d", &val ) ;
+					sscanf( argv[num_arg], "%d", &val ) ;
 					if ( val < OUTPUT_VIDEO || val >= OUTPUT_DELAYED ) {
 						fprintf( stderr,
 							"bad renderer value %d given\n",val);
@@ -363,7 +352,7 @@ int     *p_size, *p_rdr, *p_curve ;
 				break ;
 			case 's':       /* size selection */
 				if ( ++num_arg < argc ) {
-					sscanf_s( argv[num_arg], "%d", &val ) ;
+					sscanf( argv[num_arg], "%d", &val ) ;
 					if ( val < 1 ) {
 						fprintf( stderr,
 							"bad size value %d given\n",val);
