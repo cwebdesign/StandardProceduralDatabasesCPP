@@ -27,17 +27,14 @@
 
 static unsigned int hfcount = 0;
 
+#if defined(__unix)||defined(__APPLE__)
+#define fopen_s(pFile,filename,mode) ((*(pFile))=fopen((filename),(mode)))==NULL
+#define sprintf_s(buf, ...) snprintf((buf), sizeof(buf), __VA_ARGS__)
+#endif
+
 /*-----------------------------------------------------------------*/\
 /* data is between -1.0 and 1.0, for y heightfield */
-#ifdef ANSI_FN_DEF
 static char * create_height_file(char *filename, int height, int width, float **data, int type)
-#else
-static char * create_height_file(filename, height, width, data, type)
-char *filename;
-int height, width;
-float **data;
-int type;
-#endif
 {
     FILE *file;
     double v;
@@ -528,13 +525,7 @@ int curve_format;
 }
 
 
-#ifdef ANSI_FN_DEF
 static void NurbDBasis(int c, float t, int npts, float*x, float*basis, float*dbasis)
-#else
-static void NurbDBasis(c, t, npts, x, basis, dbasis)
-int c, npts;
-float t, *x, *basis, *dbasis;
-#endif
 {
 	int i, k, nplusc;
 	float b1, b2, f1, f2, f3, f4;
@@ -642,27 +633,12 @@ float t, *x, *basis, *dbasis;
 
 /* Determine the position and normal at a single coordinate
 point (u, v) on a NURB */
-#ifdef ANSI_FN_DEF
 static void NurbNormal(int norder, int npts,
 					   float *nknotvec, float *nbasis, float *ndbasis,
 					   int morder, int mpts,
 					   float *mknotvec, float *mbasis, float *mdbasis,
 					   COORD4 **ctlpts, int rat_flag,
 					   float u0, float v0, COORD3 P, COORD3 N)
-#else
-					   static void NurbNormal(norder, npts,
-					   nknotvec, nbasis, ndbasis,
-					   morder, mpts,
-					   mknotvec, mbasis, mdbasis,
-					   ctlpts, rat_flag,
-					   u0, v0, P, N)
-					   int norder, npts, morder, mpts, rat_flag;
-float *nknotvec, *nbasis, *ndbasis;
-float *mknotvec, *mbasis, *mdbasis;
-float u0, v0;
-COORD4 **ctlpts;
-COORD3 P, N;
-#endif
 {
     float t, t1, t2, homog;
     float D, Du, Dv;
@@ -737,18 +713,9 @@ COORD3 P, N;
 
 
 /* Uniform subdivision of a NURB into triangular patches */
-#ifdef ANSI_FN_DEF
 static void lib_output_polygon_nurb(int norder, int npts, int nknots, float *nknotvec,
 									int morder, int mpts, int mknots, float *mknotvec,
 									COORD4 **ctlpts, int rat_flag)
-#else
-									static void lib_output_polygon_nurb(norder, npts, nknots, nknotvec,
-									morder, mpts, mknots, mknotvec,
-									ctlpts, rat_flag)
-									int norder, npts, nknots, morder, mpts, mknots, rat_flag;
-float *nknotvec, *mknotvec;
-COORD4 **ctlpts;
-#endif
 {
     float *nbasis, *ndbasis, *mbasis, *mdbasis;
     float ubnd0, ubnd1, vbnd0, vbnd1;
