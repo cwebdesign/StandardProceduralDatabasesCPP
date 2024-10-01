@@ -23,6 +23,7 @@
 /* defines/constants section */
 /*-----------------------------------------------------------------*/
 
+#define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES //make VS happy
 
 /*-----------------------------------------------------------------*/
 void lib_output_comment (char *comment)
@@ -516,12 +517,7 @@ void lib_output_viewpoint (COORD3 from, COORD3 at, COORD3 up,
  * intensity.
  *
  */
-#ifdef ANSI_FN_DEF
  void    lib_output_light (COORD4 center_pt)
-#else
-	 void lib_output_light(center_pt)
-	 COORD4 center_pt;
-#endif
  {
 	 COORD3 vec;
 	 MATRIX txmat;
@@ -723,12 +719,7 @@ void lib_output_viewpoint (COORD3 from, COORD3 at, COORD3 up,
  * Output background color.  A color is simply RGB (monitor dependent, but
  * that's life).
  */
-#ifdef ANSI_FN_DEF
  void lib_output_background_color (COORD3 color)
-#else
-	 void lib_output_background_color(color)
-	 COORD3 color;
-#endif
  {
 	 switch (gRT_out_format) {
 	 case OUTPUT_VIDEO:
@@ -883,7 +874,7 @@ static char * create_surface_name(char *name, int val)
     txname = (char *)malloc(7*sizeof(char));
     if (txname == NULL)
 		return NULL;
-    sprintf_s(txname, 7, "txt%03d", val);
+    sprintf(txname, 7, "txt%03d", val);
     txname[6] = '\0';
     return txname;
 }
