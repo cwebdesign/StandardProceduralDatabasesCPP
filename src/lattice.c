@@ -45,7 +45,7 @@ static FILE * stdout_file = NULL;
 #define radius1 ((double) RADIUS1 / (double) size_factor)
 #define radius2 ((double) RADIUS2 / (double) size_factor)
 
-main(argc, argv)
+int main(argc, argv)
     int		argc;
     char	*argv[];
 {
