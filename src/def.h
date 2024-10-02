@@ -69,10 +69,10 @@ extern "C" {
 /* If OUTPUT_TO_FILE is defined, output goes to new text file, not to stdout */
 #define OUTPUT_TO_FILE            true
 
-#define PLATFORM_INIT(spdType)          MacInit(&argc, &argv, spdType)
-#define PLATFORM_PROGRESS(STARTVAL,CURRVAL,ENDVAL)  MacProgress(STARTVAL,CURRVAL,ENDVAL)
-#define PLATFORM_MULTITASK()            MacMultiTask()
-#define PLATFORM_SHUTDOWN()             MacShutDown()
+#define PLATFORM_INIT(spdType)          //MacInit(&argc, &argv, spdType)
+#define PLATFORM_PROGRESS(STARTVAL,CURRVAL,ENDVAL)  // MacProgress(STARTVAL,CURRVAL,ENDVAL)
+#define PLATFORM_MULTITASK()            //MacMultiTask()
+#define PLATFORM_SHUTDOWN()             //MacShutDown()
 
 #define EPSILON  1.0e-15
 #define EPSILON2 1.0e-7
