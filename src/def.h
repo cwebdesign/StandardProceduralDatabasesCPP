@@ -60,8 +60,7 @@ extern "C" {
 
 
 /* ---- Macintosh-specific definitions here ---- */
-
-#if defined(applec) || defined(THINK_C) || defined(__MWERKS__)
+#if defined(__APPLE__) || defined(THINK_C) || defined(__MWERKS__)
 // insert ANSI prototypes in function forward decls.
 #define PARAMS(x)  x
 // Use ANSI function definitions, not K&R style
