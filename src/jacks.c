@@ -87,8 +87,7 @@ make_jack_obj()
 /* Create a jack shaped object, then put a smaller copy in
    each of the octants defined by the arms of the jack.
    This process is repeated until depth reaches max_depth. */
-static void
-make_rec_jack(depth, max_depth)
+static void make_rec_jack(int depth, int max_depth)
 {
     double i, j, k;
     COORD3 scale, trans;
