@@ -874,7 +874,7 @@ static char * create_surface_name(char *name, int val)
     txname = (char *)malloc(7*sizeof(char));
     if (txname == NULL)
 		return NULL;
-    sprintf(txname, 7, "txt%03d", val);
+    snprintf(txname, 7, "txt%03d", val);
     txname[6] = '\0';
     return txname;
 }
