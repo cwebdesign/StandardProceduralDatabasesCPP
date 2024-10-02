@@ -256,7 +256,7 @@ struct polypatch_struct {
 
 /* Center/radius of a sphere */
 struct sphere_struct {
-   COORD4 center_pt;
+   COORD3 center_pt;
    };
 
 /* Center, axis lengths, and exponents of a superquadric */
