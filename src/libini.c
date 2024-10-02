@@ -122,11 +122,7 @@ int lib_open(int raytracer_format, char *filename) //filename unused except on M
 }
 
 /*-----------------------------------------------------------------*/
-#ifdef ANSI_FN_DEF
 void lib_close(void)
-#else
-void lib_close PARAMS((void))
-#endif
 {
     /* Make sure everything is cleaned up */
     if ((gRT_orig_format == OUTPUT_RTRACE) ||
