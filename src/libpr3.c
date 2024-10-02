@@ -29,7 +29,7 @@ static unsigned int hfcount = 0;
 
 #if defined(__unix)||defined(__APPLE__)
 #define fopen_s(pFile,filename,mode) ((*(pFile))=fopen((filename),(mode)))==NULL
-#define sprintf_s(buf, ...) snprintf((buf), sizeof(buf), __VA_ARGS__)
+#define sprintf_s(buf, len, ...) snprintf((buf), sizeof(buf), __VA_ARGS__)
 #endif
 
 /*-----------------------------------------------------------------*/\
