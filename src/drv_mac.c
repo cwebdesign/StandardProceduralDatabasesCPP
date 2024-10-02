@@ -32,11 +32,14 @@ Change History:
 #include <stdlib.h>		/* atoi, etc */
 
 /*==== Macintosh-specific headers ====*/
+//#include <stdbool.h>
+//#define Boolean bool
+#include <TargetConditionals.h>
 #include <Controls.h>
 #include <Dialogs.h>
 #include <Files.h>
 // Note: Memory.h & Windows.h have been renamed by Apple in Univ. Headers 3!
-#include <MacMemory.h>			/* BlockMove */
+#include <MacMemory.h>			//-- BlockMove 
 #include <MacWindows.h>
 #include <Menus.h>
 #include <Events.h>
@@ -50,15 +53,16 @@ Change History:
 #include <AppleEvents.h>
 #include <Gestalt.h>
 #include <Folders.h>
-#include <errors.h>			/* dupFNErr, etc */
+#include <errors.h>			 /*dupFNErr, etc */
 #include <Fonts.h>			/* checkMark */
 #include <segload.h>		/* UnloadSeg */
 #include <traps.h>			/* _Unimplemented */
 #include <StandardFile.h>	/* SFPutFile */
+
 #include <string.h>			/* strcpy/cat */
 #include <toolutils.h>		/* BitTst, GetCursor, etc */
 
-#ifdef applec
+#ifdef __APPLE__
 #include <strings.h>		/* p2cstr */
 #endif
 
