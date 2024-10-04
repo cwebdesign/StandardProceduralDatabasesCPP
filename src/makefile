@@ -1,14 +1,14 @@
 # generic makefile for standard procedural databases
 # Author:  Eric Haines
 
-CC=gcc -O
+CC=gcc-14 -O -fmax-errors=3 -I/opt/homebrew/include/ -D_THREAD_SAFE
 SUFOBJ=.o
-SUFEXE=.exe
+SUFEXE=
 INC=def.h lib.h
 LIBOBJ=drv_null$(SUFOBJ) libini$(SUFOBJ) libinf$(SUFOBJ) libpr1$(SUFOBJ) \
 	libpr2$(SUFOBJ) libpr3$(SUFOBJ) libply$(SUFOBJ) libdmp$(SUFOBJ) \
 	libvec$(SUFOBJ) libtx$(SUFOBJ)
-BASELIB=-lm
+BASELIB=-L/opt/homebrew/lib -lm -lsdl2
 
 all:		balls gears mount rings teapot tetra tree \
 		readdxf readnff readobj \
